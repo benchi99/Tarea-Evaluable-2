@@ -8,6 +8,17 @@
     </head>
 
     <?php 
+
+    $RESULTADO_POR_PAGINA = 20;
+
+    $pagina = $_GET['pagina'];
+    if (!$pagina) {
+        $inicio = 0;
+        $pagina = 1;
+    } else {
+        $inicio = ($pagina - 1) * $RESULTADO_POR_PAGINA;
+    }
+
     if (!$_POST){
         switch ($_GET['opt']) {
             case 'todos':
@@ -24,7 +35,10 @@
         $sql = "select * from paises where continente = '". $_POST['continentes'] ."'";
     }
 
-    $conexionDB = mysqli_connect("localhost", "root", "", "paises");
+    $piso = "192.168.0.169";
+    $portatil = "localhost";
+
+    $conexionDB = mysqli_connect($piso, "root", "", "paises");
     mysqli_set_charset($conexionDB, "utf8");
     
     if (!$conexionDB){
@@ -59,6 +73,7 @@
         <?php 
             }
         ?>
+
         </table>
     </body>
 </html>
