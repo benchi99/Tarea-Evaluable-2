@@ -23,13 +23,13 @@
     <body>
         <h1>Listado de países del mundo</h1>
         <ul>
-            <li><a href="ej2logica.php?opt=todos">Todos los países</a></li>
-            <li><a href="ej2logica.php?opt=europa">Países de "Europa"</a></li>
-            <li><a href="ej2logica.php?opt=nomoneda">Países que no tienen definida moneda</a></li>
+            <li><a href="ej2_2logica.php?opt=todos&pagina=1">Todos los países</a></li>
+            <li><a href="ej2_2logica.php?opt=europa&pagina=1">Países de "Europa"</a></li>
+            <li><a href="ej2_2logica.php?opt=nomoneda&pagina=1">Países que no tienen definida moneda</a></li>
 
             <br>
 
-            <form action="ej2logica.php" method="POST">
+            <form action="ej2_2logica.php?pagina=1" method="POST">
                 <select name="continentes">
                 <?php 
                 while($registro = mysqli_fetch_array($consulta)) { ?>

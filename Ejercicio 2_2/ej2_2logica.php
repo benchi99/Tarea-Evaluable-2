@@ -11,40 +11,40 @@
 
     $RESULTADO_POR_PAGINA = 20;
 
-    $pagina = $_GET['pagina'];
-    if (!$pagina) {
+    if (!$_GET['pagina']) {
         $inicio = 0;
         $pagina = 1;
     } else {
+        $pagina = $_GET['pagina'];
         $inicio = ($pagina - 1) * $RESULTADO_POR_PAGINA;
     }
 
     if (!$_POST){
         switch ($_GET['opt']) {
             case 'todos':
-                $sql = "select * from paises";        
+                $sql = "select * from paises limit ".$inicio.",".$RESULTADO_POR_PAGINA;        
                 break;
             case 'europa':
-                $sql = "select * from paises where continente = 'Europa'";        
+                $sql = "select * from paises where continente = 'Europa' limit ".$inicio.",".$RESULTADO_POR_PAGINA;
                 break;
             case 'nomoneda':
-                $sql = "select * from paises where iso_moneda is null";        
+                $sql = "select * from paises where iso_moneda is null limit ".$inicio.",".$RESULTADO_POR_PAGINA;        
                 break;
         }
     } else {
-        $sql = "select * from paises where continente = '". $_POST['continentes'] ."'";
+        $sql = "select * from paises where continente = '". $_POST['continentes'] ."' limit ".$inicio.",".$RESULTADO_POR_PAGINA;
     }
 
-    $piso = "192.168.0.169";
-    $portatil = "localhost";
-
-    $conexionDB = mysqli_connect($piso, "root", "", "paises");
+    $conexionDB = mysqli_connect("localhost", "root", "", "paises");
     mysqli_set_charset($conexionDB, "utf8");
     
     if (!$conexionDB){
         die("No pudo hacerse la conexión al servidor.");
     }
     $consulta = mysqli_query($conexionDB, $sql);
+
+    $total_registros = $consulta -> num_rows;
+    $total_pgs = ceil($total_registros/$RESULTADO_POR_PAGINA);
     
     ?>
     <body>
@@ -72,8 +72,20 @@
             </tr>
         <?php 
             }
+        ?>      
+        </table> 
+        <?php
+            if ($total_pgs > 1) {
+                for ($i = 1; $i <=$total_pgs;$i++){
+                    if ($pagina == $i) {
+                        echo $pagina." ";
+                    } else {
         ?>
-
-        </table>
+            <a href="ej2_2logica.php?pagina<?=$i?>"><?=$i?></a>
+        <?php 
+                    }
+                }
+            }
+        ?>
     </body>
 </html>
