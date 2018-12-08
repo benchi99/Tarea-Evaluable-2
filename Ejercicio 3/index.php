@@ -9,17 +9,20 @@
     </head>
 
     <body>
-        <li>
-            <ul><a href="">Anotar entrada</a></ul>
-            <ul><a href="">Cambiar estado a reparándose</a></ul>
-            <ul><a href="">Anotar salida</a></ul>
-            <ul><a href="">Borrar Entrada</a></ul>
-            <ul>Listar<li>
-                <ul><a href=""></a></ul>
-                <ul><a href=""></a></ul>
-                <ul><a href=""></a></ul>
-                <ul><a href=""></a></ul>
-            </li></ul>
-        </li>    
+
+        <h1>Taller XXXXXXXXXXXX</h1>
+
+        <ul>
+            <li><a href="ej3nuevaEntrada.php?paso=1">Anotar entrada</a></li>
+            <li><a href="ej3CambiarEstado.php">Cambiar estado a reparándose</a></li>
+            <li><a href="ej3AnotarSalida.php">Anotar salida</a></li>
+            <li><a href="ej3eliminarEntrada.php">Borrar Entrada</a></li>
+            <li>Listar<ul>
+                <li><a href="ej3Consultar.php?tipo=todo">Todas las entradas</a></li>
+                <li><a href="ej3Consultar.php?tipo=espera">Vehículos en espera</a></li>
+                <li><a href="ej3Consultar.php?tipo=reparandose">Vehículos reparándose</a></li>
+                <li><a href="ej3Consultar.php?tipo=reparado">Vehículos reparados</a></li>
+            </ul></li>
+        </ul>    
     </body>
 </html>
