@@ -28,7 +28,7 @@
             <table>
                 <tr>
                     <td>Nº Seguimiento</td>
-                    <td><input type="number" name="seguimiento"/></td>
+                    <td><input type="number" name="seguimiento" value="<?=ValorPost($seguimiento)?>"/></td>
                     <td>Matrícula</td>
                     <td><input type="text" name="matricula" maxlength="7"/></td>
                     <td>Modelo</td>
@@ -69,6 +69,7 @@
                 
                 <?php 
                 } else {
+                    include "ej3nuevaEntrada.php?paso=1";
                 ?>
                     <p>Hubo un error al introducir los datos en la base de datos.</p>
                     <p><?= $conexionBD->error ?></p>
