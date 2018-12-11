@@ -14,9 +14,9 @@
 
         <ul>
             <li><a href="ej3nuevaEntrada.php?paso=1">Anotar entrada</a></li>
-            <li><a href="ej3CambiarEstado.php">Cambiar estado a reparándose</a></li>
-            <li><a href="ej3AnotarSalida.php">Anotar salida</a></li>
-            <li><a href="ej3eliminarEntrada.php">Borrar Entrada</a></li>
+            <li><a href="ej3CambiarEstado.php?paso=1">Cambiar estado a reparándose</a></li>
+            <li><a href="ej3AnotarSalida.php?paso=1">Anotar salida</a></li>
+            <li><a href="ej3eliminarEntrada.php?paso=1">Borrar Entrada</a></li>
             <li>Listar<ul>
                 <li><a href="ej3Consultar.php?tipo=todo">Todas las entradas</a></li>
                 <li><a href="ej3Consultar.php?tipo=espera">Vehículos en espera</a></li>

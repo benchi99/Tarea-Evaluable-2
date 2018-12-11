@@ -39,8 +39,6 @@
                     <td><input type="date" name="fechaEntrada"/></td>
                     <td>Marca</td>
                     <td><input type="text" name="marca" maxlength="15"/></td>
-                    <td>Fecha recogida</td>
-                    <td><input type="date" name="fechaRecogida"/></td>
                 </tr>
             </table>
             
@@ -56,12 +54,11 @@
                 $matricula = $_POST['matricula'];
                 $marca = $_POST['marca'];
                 $modelo = $_POST['modelo'];
-                $fecha_recogida = $_POST['fechaRecogida'];
         
                 $conexionBD = mysqli_connect("localhost", "root", "", "taller")
                 or die("fuck");
                 
-                $sql = 'INSERT INTO vehiculos VALUES ("'.$num_seg.'", "'.$fecha_entrada.'", "'.$matricula.'", "'.$modelo.'", 0, "'.$fecha_recogida.'", "'.$marca.'");';
+                $sql = 'INSERT INTO vehiculos VALUES ("'.$num_seg.'", "'.$fecha_entrada.'", "'.$matricula.'", "'.$modelo.'", 0, NULL, "'.$marca.'");';
                 
                 if ($conexionBD -> query($sql) == TRUE){
                 ?>
@@ -80,6 +77,5 @@
                 <?php
             }
         ?>
-            
     </body>
 </html>
